@@ -1,19 +1,15 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebApi.Models.Games
 {
-    public class InsertModel
+    public class GameUpdateModel
     {
-        [Required]
         public string Title { get; set; }
-
-        [Required]
         public string Type { get; set; }
-
-        [Required]
         public string Platform { get; set; }
-
         public string Production { get; set; }
         public DateTime CreatedTime { get; set; }
     }

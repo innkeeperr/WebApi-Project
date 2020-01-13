@@ -9,8 +9,8 @@ namespace WebApi.Helpers
         public AutoMapperProfile()
         {
             CreateMap<User, UserModel>();
-            CreateMap<RegisterModel, User>();
-            CreateMap<UpdateModel, User>();
+            CreateMap<UserRegisterModel, User>();
+            CreateMap<UserUpdateModel, User>();
         }
     }
 }

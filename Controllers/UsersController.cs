@@ -36,7 +36,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        public IActionResult Authenticate([FromBody]UserAuthenticateModel model)
         {
             var user = _userService.Authenticate(model.Username, model.Password);
 
@@ -70,7 +70,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody]RegisterModel model)
+        public IActionResult Register([FromBody]UserRegisterModel model)
         {
             // map model to entity
             var user = _mapper.Map<User>(model);
@@ -105,7 +105,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]UpdateModel model)
+        public IActionResult Update(int id, [FromBody]UserUpdateModel model)
         {
             // map model to entity and set id
             var user = _mapper.Map<User>(model);
