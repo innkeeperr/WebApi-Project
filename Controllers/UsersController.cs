@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using WebApi.Services;
 using WebApi.Entities;
 using WebApi.Models.Users;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace WebApi.Controllers
 {
@@ -33,6 +35,25 @@ namespace WebApi.Controllers
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
+
+        [AllowAnonymous]
+        [HttpPost("eauthenticate")]
+        public IActionResult ExternalAuthenticate([FromBody] string email, string password)
+        {
+
+            var client = new RestClient("http://127.0.0.1:8000");
+            client.Authenticator = new HttpBasicAuthenticator("email", "password");
+
+            var request = new RestRequest("/api/login", DataFormat.Json);
+
+            request.AddParameter("email", email);
+            request.AddParameter( "password", password);
+
+            var response = client.Post(request);
+            return Ok(response.Content);
+        }
+
+
 
         [AllowAnonymous]
         [HttpPost("authenticate")]

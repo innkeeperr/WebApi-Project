@@ -64,7 +64,7 @@ namespace WebApi.Services
 
                 game.Title = gameParam.Title;
             }
-
+            
             //Update game properties if provided
             if (!string.IsNullOrWhiteSpace(gameParam.Production))
                 game.Production = gameParam.Production;
