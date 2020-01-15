@@ -1,10 +1,11 @@
 {
-    "profiles": {
-        "Development": {
-            "commandName": "Project",
-            "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            }
-        }
+  "profiles": {
+    "Development": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\Ygor\\source\\repos\\WebApi-Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
+  }
 }
