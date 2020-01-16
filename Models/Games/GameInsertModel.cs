@@ -5,13 +5,13 @@ namespace WebApi.Models.Games
 {
     public class GameInsertModel
     {
-        [Required]
+        [Required(ErrorMessage ="Title is required!")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Type is also required!!")]
         public GameType Type { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Platform is required a little hehe!")]
         public GamePlatform Platform { get; set; }
 
         public string Production { get; set; }
