@@ -14,6 +14,7 @@ namespace WebApi.Services
         Game Create(Game game, string Title);
         void Update(Game game);
         void Delete(int id);
+        IEnumerable<Game> GetByQuery(string q);
     }
     public class GameService : IGameService
     {
@@ -86,6 +87,18 @@ namespace WebApi.Services
                 _context.Games.Remove(game);
                 _context.SaveChanges();
             }
+        }
+
+        public IEnumerable<Game> GetByQuery(string q)
+        {
+            var games = from m in _context.Games select m;
+
+            if (!String.IsNullOrEmpty(q))
+            {
+                games = games.Where(s => s.Title.Contains(q));
+            }
+
+            return games;
         }
     }
 }

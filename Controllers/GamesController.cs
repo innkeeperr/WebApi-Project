@@ -87,6 +87,16 @@ namespace WebApi.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("GetByQuery")]
+
+        public IActionResult GetGameByQuery([FromQuery] string q="")
+        {
+            var games = _gameService.GetByQuery(q);
+            var model = _mapper.Map<IList<GameModel>>(games); 
+            return Ok(model);
+        }
+
     }
 }
 
