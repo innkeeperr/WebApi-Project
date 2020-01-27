@@ -1,6 +1,7 @@
 using AutoMapper;
 using WebApi.Entities;
 using WebApi.Models.Games;
+using WebApi.Models.Opinions;
 using WebApi.Models.Users;
 
 namespace WebApi.Helpers
@@ -18,6 +19,10 @@ namespace WebApi.Helpers
             CreateMap<Game, GameModel>();
             CreateMap<GameInsertModel, Game>();
             CreateMap<GameUpdateModel, Game>();
+
+            //Opinion
+            CreateMap<Opinion, OpinionModel>();
+            CreateMap<OpinionInsertModel, Opinion>();
         }
     }
 }
