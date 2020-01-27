@@ -97,6 +97,15 @@ namespace WebApi.Controllers
             return Ok(model);
         }
 
+        [HttpGet("GetCount")]
+        public IActionResult GetCountGames()
+        {
+            int amount = _gameService.GetCount();
+            return Ok(amount);
+        }
+        //[HttpGet("TopTenGames")]
+        //public IActionResult GetTopTenGames
+
     }
 }
 

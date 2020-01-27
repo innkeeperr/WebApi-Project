@@ -15,6 +15,8 @@ namespace WebApi.Services
         void Update(Game game);
         void Delete(int id);
         IEnumerable<Game> GetByQuery(string q);
+        //IEnumerable<Game> GetTopTen();
+        int GetCount();
     }
     public class GameService : IGameService
     {
@@ -100,5 +102,14 @@ namespace WebApi.Services
 
             return games;
         }
+
+        public int GetCount()
+        {
+            return _context.Games.Count();
+        }
+        //public IEnumerable<Game> GetTopTen()
+        //{
+        //    var games = from m in _context.Games select m;
+        //}
     }
 }
