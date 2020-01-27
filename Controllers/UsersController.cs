@@ -19,7 +19,7 @@ namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
@@ -108,7 +108,8 @@ namespace WebApi.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
+        
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {

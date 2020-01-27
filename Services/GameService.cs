@@ -95,9 +95,9 @@ namespace WebApi.Services
         {
             var games = from m in _context.Games select m;
 
-            if (!String.IsNullOrEmpty(q))
+            if (!string.IsNullOrEmpty(q))
             {                
-                games = games.Where(s => s.Title.Contains(q));
+                games = games.Where(s => s.Title.ToLower().Contains(q.ToLower()));
             }
 
             return games;
